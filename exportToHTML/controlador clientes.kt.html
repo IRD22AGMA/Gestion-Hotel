@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>controlador clientes.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+controlador clientes.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span><span class="s1">ClientsController </span><span class="s2">{</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">printer </span><span class="s2">= </span><span class="s1">Printer</span><span class="s2">()</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">clientList </span><span class="s2">= </span><span class="s1">mutableListOf</span><span class="s2">&lt;</span><span class="s1">Customer</span><span class="s2">&gt;(</span>
+        <span class="s1">Customer</span><span class="s2">(</span>
+            <span class="s3">&quot;Brisa&quot;</span><span class="s2">,</span>
+            <span class="s3">&quot;Waves&quot;</span><span class="s2">,</span>
+            <span class="s3">&quot;Chin&quot;</span><span class="s2">,</span>
+            <span class="s3">&quot;FJFJHSKASLKM9&quot;</span><span class="s2">,</span>
+            <span class="s3">&quot;Sm 510 Mz 58 Lt1&quot;</span>
+        <span class="s2">)</span>
+    <span class="s2">)</span>
+
+    <span class="s0">fun </span><span class="s1">registerCustomer</span><span class="s2">() {</span>
+        <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;Ingrese los nombres&quot;</span><span class="s2">)</span>
+        <span class="s0">val </span><span class="s1">names </span><span class="s2">= </span><span class="s1">readln</span><span class="s2">()</span>
+        <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;Ingrese el primer apellido&quot;</span><span class="s2">)</span>
+        <span class="s0">val </span><span class="s1">firstLastName </span><span class="s2">= </span><span class="s1">readln</span><span class="s2">()</span>
+        <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;Ingrese el segundo apellido&quot;</span><span class="s2">)</span>
+        <span class="s0">val </span><span class="s1">secondLastName </span><span class="s2">= </span><span class="s1">readln</span><span class="s2">()</span>
+        <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;Ingrese el RFC&quot;</span><span class="s2">)</span>
+        <span class="s0">val </span><span class="s1">rfc </span><span class="s2">= </span><span class="s1">readln</span><span class="s2">()</span>
+        <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;Ingrese la dirección&quot;</span><span class="s2">)</span>
+        <span class="s0">val </span><span class="s1">address </span><span class="s2">= </span><span class="s1">readln</span><span class="s2">()</span>
+
+        <span class="s0">val </span><span class="s1">addedCustomer </span><span class="s2">= </span><span class="s1">Customer</span><span class="s2">(</span>
+            <span class="s1">names</span><span class="s2">, </span><span class="s1">firstLastName</span><span class="s2">, </span><span class="s1">secondLastName</span><span class="s2">, </span><span class="s1">rfc</span><span class="s2">, </span><span class="s1">address</span>
+        <span class="s2">)</span>
+
+        <span class="s1">clientList</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">addedCustomer</span><span class="s2">)</span>
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">showCustomers</span><span class="s2">() {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">clientList</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()) {</span>
+            <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;No se encuentran clientes registrados&quot;</span><span class="s2">)</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s0">var </span><span class="s1">counter </span><span class="s2">= </span><span class="s4">1</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">customer </span><span class="s0">in </span><span class="s1">clientList</span><span class="s2">) {</span>
+                <span class="s1">printer</span><span class="s2">.</span><span class="s1">printMsg</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">$</span><span class="s1">counter</span><span class="s3">-&quot; </span><span class="s2">+ </span><span class="s1">customer</span><span class="s2">.</span><span class="s1">getCustomerData</span><span class="s2">())</span>
+                <span class="s1">counter</span><span class="s2">++</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">getCustomerByIndex</span><span class="s2">(</span><span class="s1">index: Int</span><span class="s2">)</span><span class="s1">: Customer </span><span class="s2">= </span><span class="s1">clientList</span><span class="s2">[</span><span class="s1">index</span><span class="s2">]</span>
+
+    <span class="s0">fun </span><span class="s1">areNotClientsRegistered</span><span class="s2">()</span><span class="s1">: Boolean </span><span class="s2">= </span><span class="s1">clientList</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

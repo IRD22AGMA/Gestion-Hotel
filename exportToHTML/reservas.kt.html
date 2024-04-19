@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>reservas.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+reservas.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span><span class="s1">Booking</span><span class="s2">(</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">room: Room</span><span class="s2">,</span>
+    <span class="s0">val </span><span class="s1">customer: Customer</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">startDate: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">endDate: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">var </span><span class="s1">totalNights: Int</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">var </span><span class="s1">isCancelled: Boolean </span><span class="s2">= </span><span class="s0">false</span><span class="s2">,</span>
+<span class="s2">) {</span>
+    <span class="s1">private </span><span class="s0">var </span><span class="s1">totalPrice </span><span class="s2">= </span><span class="s3">0.0</span>
+
+    <span class="s0">fun </span><span class="s1">calculatePrice</span><span class="s2">() {</span>
+        <span class="s1">totalPrice </span><span class="s2">= </span><span class="s1">room</span><span class="s2">.</span><span class="s1">pricePerNight </span><span class="s2">* </span><span class="s1">totalNights</span>
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">cancelBooking</span><span class="s2">() {</span>
+        <span class="s1">isCancelled </span><span class="s2">= </span><span class="s0">true</span>
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">updateNights</span><span class="s2">(</span><span class="s1">totalNights: Int</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">totalNights </span><span class="s2">= </span><span class="s1">totalNights</span>
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">getTotal</span><span class="s2">()</span><span class="s1">: Double </span><span class="s2">= </span><span class="s1">totalPrice</span>
+
+    <span class="s0">fun </span><span class="s1">getBookingData</span><span class="s2">()</span><span class="s1">: String </span><span class="s2">{</span>
+        <span class="s0">return </span><span class="s4">&quot;Nombre cliente </span><span class="s0">${</span><span class="s1">customer</span><span class="s2">.</span><span class="s1">getCustomerData</span><span class="s2">()</span><span class="s0">}</span><span class="s4">&quot; </span><span class="s2">+ </span><span class="s4">&quot;Total de noches: </span><span class="s0">$</span><span class="s1">totalNights</span><span class="s4">&quot; </span><span class="s2">+</span>
+                <span class="s4">&quot;Fecha inicio :  </span><span class="s0">$</span><span class="s1">startDate</span><span class="s4">&quot; </span><span class="s2">+</span>
+                <span class="s4">&quot;Fecha final :  </span><span class="s0">$</span><span class="s1">endDate</span><span class="s4">&quot; </span><span class="s2">+</span>
+                <span class="s4">&quot;Total : </span><span class="s0">$</span><span class="s1">totalPrice</span><span class="s4">&quot;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

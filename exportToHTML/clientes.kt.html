@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>clientes.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+clientes.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span><span class="s1">Customer</span><span class="s2">(</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">names: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">firstLastName: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">secondLastName: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">rfc: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">address: String</span><span class="s2">,</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">bookingList: MutableList</span><span class="s2">&lt;</span><span class="s1">Booking</span><span class="s2">&gt; = </span><span class="s1">mutableListOf</span><span class="s2">()</span>
+<span class="s2">) {</span>
+
+    <span class="s0">fun </span><span class="s1">getCustomerData</span><span class="s2">()</span><span class="s1">: String </span><span class="s2">{</span>
+        <span class="s0">return </span><span class="s3">&quot;Nombre: </span><span class="s0">$</span><span class="s1">names </span><span class="s0">$</span><span class="s1">firstLastName </span><span class="s0">$</span><span class="s1">secondLastName </span><span class="s3">RFC: </span><span class="s0">$</span><span class="s1">rfc </span><span class="s3">Address: </span><span class="s0">$</span><span class="s1">address</span><span class="s3">&quot;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">fun </span><span class="s1">addBooking</span><span class="s2">(</span><span class="s1">booking: Booking</span><span class="s2">) {</span>
+        <span class="s1">bookingList</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">booking</span><span class="s2">)</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
